@@ -1,0 +1,3 @@
+class Farm < ApplicationRecord
+  
+end
