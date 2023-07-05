@@ -1,5 +1,5 @@
 class FarmsController < ApplicationController
   def index
-    Farm.all
+    @farms = Farm.all
   end
 end
