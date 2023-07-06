@@ -29,9 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_033501) do
     t.float "cost_per_pound"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "farms_id"
-    t.index ["farms_id"], name: "index_products_on_farms_id"
+    t.bigint "farm_id"
+    t.index ["farm_id"], name: "index_products_on_farm_id"
   end
 
-  add_foreign_key "products", "farms", column: "farms_id"
+  add_foreign_key "products", "farms", column: "farm_id"
 end
