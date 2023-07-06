@@ -1,0 +1,9 @@
+<h1><%= @farm.name %></h1>
+
+<% if @farm.pick_your_own == true %>
+  <p>This Farm Offers Pick-Your-Own Service"</p>
+  <% else %>
+  <p>This Farm Does Not Offer Pick-Your-Own Service"</p>
+<% end %>
+
+<p>Acres: <%= @farm.acres %></p>

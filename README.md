@@ -8,7 +8,7 @@ Directions:
 CRUD
 
 ```
-[ ] done
+[X] done
 
 User Story 1, Parent Index 
 
@@ -18,7 +18,7 @@ When I visit '/parents'
 Then I see the name of each parent record in the system
 ```
 ```
-[ ] done
+[X] done
 
 User Story 2, Parent Show 
 
