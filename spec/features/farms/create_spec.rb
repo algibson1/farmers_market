@@ -17,33 +17,46 @@ RSpec.describe "create a new farm record page" do
     visit "/farms/new"
     
     expect(page).to have_content("All Farms")
-    expect(page).to have_content("All Products")
+    expect(page).to have_content("All Produce")
     expect(page).to have_content("Enter information for a new farm")
     expect(page).to have_field("Farm Name")
     expect(page).to have_unchecked_field("Pick Your Own")
     expect(page).to have_field("Acres")
-    expect(page).to have_button("Submit")
+    expect(page).to have_button(type: "submit")
   end
-        # When I fill out the form with a new parent's attributes:
-        # And I click the button "Create Parent" to submit the form
-        # Then a `POST` request is sent to the '/parents' route,
-        # a new parent record is created,      
-        # and I am redirected to the Parent Index page 
+  
   it "Accepts user input to create a new farm" do
     visit "/farms/new"
-
+    
+    expect(Farm.all).to eq([])
+    # When I fill out the form with a new parent's attributes:
+    
     fill_in "Farm Name", with: "Bob's Berries"
     check "Pick Your Own"
     fill_in "Acres", with: "236"
+    # And I click the button "Create Parent" to submit the form
     click_on "Submit"
-
+    
+    # Then a `POST` request is sent to the '/parents' route,
+    # a new parent record is created,      
+    expect(Farm.all.size).to eq(1)
+    bob = Farm.all[0]
+          
+    # and I am redirected to the Parent Index page 
+    #where I see the new Parent displayed.
     expect(current_path).to eq("/farms")
     expect(page).to have_content("Bob's Berries")
+    expect(page).to have_content("Date Posted: #{bob.created_at}")
   end
 
-        
-  # back to index page for test?      
-        #where I see the new Parent displayed.
+  xit "works when pick your own box is not checked" do
+    
+  end
+
+  xit "raises an error if the user puts in invalid data" do
+    #such as letters into the acres field
+    #or special characters in farm name field?
+  end
 
 end
 
