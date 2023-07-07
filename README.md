@@ -60,7 +60,7 @@ Then I see each Child that is associated with that Parent with each Child's attr
 ActiveRecord
 
 ```
-[ ] done
+[X] done
 
 User Story 6, Parent Index sorted by Most Recently Created 
 
@@ -70,7 +70,7 @@ I see that records are ordered by most recently created first
 And next to each of the records I see when it was created
 ```
 ```
-[ ] done
+[X] done
 
 User Story 7, Parent Child Count
 
