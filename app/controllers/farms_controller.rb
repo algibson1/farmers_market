@@ -1,7 +1,7 @@
 class FarmsController < ApplicationController
   
   def index
-    @farms = Farm.all
+    @farms = Farm.all.reverse
   end
 
   def show

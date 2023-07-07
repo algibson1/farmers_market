@@ -3,6 +3,7 @@
 <p><%= link_to "New Farm", "/farms/new" %></p>
 
 <% @farms.each do |farm| %>
-  <h3><%= farm.name %></h3>
+  <h3 class="farm"><%= farm.name %></h3>
+  <p>Date Posted: <%= farm.created_at %></p>
 <% end %>
 
