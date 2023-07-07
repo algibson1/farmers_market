@@ -6,7 +6,7 @@ RSpec.describe "Products index page" do
     @lady = @scarlet.products.create!(name: "Pink Lady Apple", fruit: true, seeds: true, cost_per_pound: 1.76)
     @red_d = @scarlet.products.create!(name: "Red Delicious Apple", fruit: true, seeds: true, cost_per_pound: 1.21)
     @gold = Farm.create!(name: "Golden Orchards", pick_your_own: true, acres: 765)
-    @golden_d = @gold.products.create!(name: "Golden Delicioius Apple", fruit: true, seeds: true, cost_per_pound: 1.11)
+    @golden_d = @gold.products.create!(name: "Golden Delicious Apple", fruit: true, seeds: true, cost_per_pound: 1.11)
     @lilac = Farm.create!(name: "Lilac Vineyard", pick_your_own: false, acres: 234)
     @concord = @lilac.products.create!(name: "Concord Grape", fruit: true, seeds: false, cost_per_pound: 1.89)
     @valerie = Farm.create!(name: "Valerie's Veggies", pick_your_own: false, acres: 654)
@@ -28,6 +28,7 @@ RSpec.describe "Products index page" do
     expect(page).to have_content("Cost: $1.76 per pound")
     expect(page).to have_content("Red Delicious Apple")
     expect(page).to have_content("Cost: $1.21 per pound")
+    expect(page).to have_content("Golden Delicious Apple")
     expect(page).to have_content("Concord Grape")
     expect(page).to have_content("Seedless Fruit")
     expect(page).to have_content("Cost: $1.11 per pound")
@@ -38,5 +39,6 @@ RSpec.describe "Products index page" do
     expect(page).to have_content("Golden Orchards")
     expect(page).to have_content("Lilac Vineyard")
     expect(page).to have_content("Valerie's Veggies")
+    save_and_open_page
   end
 end
