@@ -14,3 +14,4 @@
 <p>Acres: <%= @farm.acres %></p>
 
 <p>Varietals Offered: <%= @farm.products.count %></p>
+<p><%= link_to "Produce From This Farm", "/farms/#{@farm.id}/products" %></p>

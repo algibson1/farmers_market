@@ -91,4 +91,18 @@ RSpec.describe "Farm show page" do
       expect(current_path).to eq("/farms")
     end
   end
+
+#   User Story 10, Parent Child Index Link
+
+# As a visitor
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+
+  it "links to the farm's offered produce" do
+    visit "/farms/#{@scarlet.id}"
+
+    expect(page).to have_content("Produce From This Farm")
+    click_on "Produce From This Farm"
+    expect(current_path).to eq("/farms/#{@scarlet.id}/products")
+  end
 end
