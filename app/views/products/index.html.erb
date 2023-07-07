@@ -1,7 +1,7 @@
-<h1>All Produce<h1>
+<h1>All Produce</h1>
 
 <% @products.each do |product| %>
-  <p><%= product.name %></p>
+  <h2><%= product.name %></h2>
   <% if product.fruit == true && product.seeds == false %>
     <p>Seedless Fruit</p>
   <% elsif product.fruit == true %> 
