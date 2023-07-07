@@ -80,7 +80,7 @@ I see a count of the number of children associated with this parent
 ```
 Usability
 ```
-[ ] done
+[X] done
 
 User Story 8, Child Index Link
 
@@ -89,7 +89,7 @@ When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Child Index
 ```
 ```
-[ ] done
+[X] done
 
 User Story 9, Parent Index Link
 
