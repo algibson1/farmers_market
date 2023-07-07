@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Products index page" do
+RSpec.describe "Products show page" do
   before do
     @scarlet = Farm.create!(name: "Scarlet Orchards", pick_your_own: true, acres: 354)
     @lady = @scarlet.products.create!(name: "Pink Lady Apple", fruit: true, seeds: true, cost_per_pound: 1.76)
@@ -12,32 +12,28 @@ RSpec.describe "Products index page" do
     @valerie = Farm.create!(name: "Valerie's Veggies", pick_your_own: false, acres: 654)
     @romanesco = @valerie.products.create!(name: "Romanesco Broccoli", fruit: false, seeds: false, cost_per_pound: 4.32)
   end
-
-#   User Story 3, Child Index 
+#   User Story 4, Child Show 
 
 # As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes
+# When I visit '/child_table_name/:id'
+# Then I see the child with that id including the child's attributes
 # (data from each column that is on the child table)
-  it "displays each product in the system along with attributes" do
-    visit "/products"
 
-    expect(page).to have_content("All Produce")
+  it "shows one product and that products info" do
+    visit "/products/#{@lady.id}"
+
     expect(page).to have_content("Pink Lady Apple")
     expect(page).to have_content("Fruit with seeds")
     expect(page).to have_content("Cost: $1.76 per pound")
-    expect(page).to have_content("Red Delicious Apple")
-    expect(page).to have_content("Cost: $1.21 per pound")
-    expect(page).to have_content("Golden Delicious Apple")
-    expect(page).to have_content("Concord Grape")
-    expect(page).to have_content("Seedless Fruit")
-    expect(page).to have_content("Cost: $1.11 per pound")
-    expect(page).to have_content("Romanesco Broccoli")
-    expect(page).to have_content("Vegetable")
-    expect(page).to have_content("Cost: $4.32 per pound")
     expect(page).to have_content("Grown at Scarlet Orchards")
-    expect(page).to have_content("Grown at Golden Orchards")
-    expect(page).to have_content("Grown at Lilac Vineyard")
-    expect(page).to have_content("Grown at Valerie's Veggies")
+  end
+
+  it "doesn't show info for any other product" do
+    visit "/products/#{@lady.id}"
+
+    expect(page).to_not have_content("Seedless fruit")
+    expect(page).to_not have_content("Vegetable")
+    expect(page).to_not have_content("Red Delicious Apple")
+    expect(page).to_not have_content("Lilac Vineyard")
   end
 end

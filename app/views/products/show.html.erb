@@ -1,0 +1,13 @@
+<h1><%= @product.name %></h1>
+
+<% if @product.fruit == true && @product.seeds == false %>
+  <p>Seedless Fruit</p>
+<% elsif @product.fruit == true %>
+  <p>Fruit with seeds</p>
+<% else %>
+  <p>Vegetable</p>
+<% end %>
+
+<p>Cost: $<%= @product.cost_per_pound %> per pound</p>
+
+<p>Grown at <%= @product.farm.name %></p>
