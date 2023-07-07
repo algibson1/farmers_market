@@ -60,7 +60,7 @@ Then I see each Child that is associated with that Parent with each Child's attr
 ActiveRecord
 
 ```
-[ ] done
+[X] done
 
 User Story 6, Parent Index sorted by Most Recently Created 
 

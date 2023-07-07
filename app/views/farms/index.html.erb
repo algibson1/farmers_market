@@ -1,6 +1,7 @@
 <h1>Farms</h1>
 
 <% @farms.each do |farm| %>
-  <p><%= farm.name %></p>
+  <h3 class="farm"><%= farm.name %></h3>
+  <p>Date Posted: <%= farm.created_at %></p>
 <% end %>
 
