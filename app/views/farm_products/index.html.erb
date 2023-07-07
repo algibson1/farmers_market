@@ -1,0 +1,13 @@
+<h1>Produce from <%= @farm.name %></h1>
+
+<% @products.each do |product| %>
+  <h3><%= product.name %></h3>
+  <% if product.fruit == true && product.seeds == false %>
+    <p>Seedless Fruit</p>
+  <% elsif product.fruit == true %>
+    <p>Fruit with seeds</p>
+  <% else %>
+    <p>Vegetable</p>
+  <% end %>
+  <p>Cost: $<%= product.cost_per_pound %> per pound</p>
+<% end %>

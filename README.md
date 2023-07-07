@@ -28,7 +28,7 @@ Then I see the parent with that id including the parent's attributes
 (data from each column that is on the parent table)
 ```
 ```
-[ ] done
+[X] done
 
 User Story 3, Child Index 
 
@@ -38,7 +38,7 @@ Then I see each Child in the system including the Child's attributes
 (data from each column that is on the child table)
 ```
 ```
-[ ] done
+[X] done
 
 User Story 4, Child Show 
 
@@ -48,7 +48,7 @@ Then I see the child with that id including the child's attributes
 (data from each column that is on the child table)
 ```
 ```
-[ ] done
+[X] done
 
 User Story 5, Parent Children Index 
 
