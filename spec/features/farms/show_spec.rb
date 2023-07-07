@@ -59,4 +59,50 @@ RSpec.describe "Farm show page" do
 
     expect(page).to have_content("Varietals Offered: 1")
   end
+
+    #   User Story 8, Child Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Child Index
+  it "has a link at the top for the products index page" do
+    visit "/farms/#{@scarlet.id}"
+
+    within("#header") do
+      expect(page).to have_content("All Produce")
+      click_on "All Produce"
+      expect(current_path).to eq("/products")
+    end
+  end
+
+
+  # User Story 9, Parent Index Link
+
+  # As a visitor
+  # When I visit any page on the site
+  # Then I see a link at the top of the page that takes me to the Parent Index
+
+  it "has a link at the top for the farms index page" do
+    visit "/farms/#{@scarlet.id}"
+
+    within("#header") do
+      expect(page).to have_content("All Farms")
+      click_on "All Farms"
+      expect(current_path).to eq("/farms")
+    end
+  end
+
+#   User Story 10, Parent Child Index Link
+
+# As a visitor
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+
+  it "links to the farm's offered produce" do
+    visit "/farms/#{@scarlet.id}"
+
+    expect(page).to have_content("Produce From This Farm")
+    click_on "Produce From This Farm"
+    expect(current_path).to eq("/farms/#{@scarlet.id}/products")
+  end
 end
