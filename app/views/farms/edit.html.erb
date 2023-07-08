@@ -1,0 +1,13 @@
+<h1>Edit Farm Data</h1>
+
+<form action="/farms/<%= @farm.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="name">Farm Name:</label>
+  <input type="text" id="name" name="farm[name]" value="<%= @farm.name %>"><br>
+  <label for="upick">Pick Your Own</label>
+  <input type="checkbox" id="upick" name= "farm[pick_your_own]" <%= @upick %>><br>
+  <label for="acres">Acres:</label>
+  <input type="text" id="acres" name="farm[acres]" value="<%= @farm.acres %>"><br>
+  <input type="submit" id="submit" value="Update">  
+</form>
