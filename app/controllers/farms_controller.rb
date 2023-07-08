@@ -15,7 +15,7 @@ class FarmsController < ApplicationController
   def create
     farm = Farm.new({
       name: params[:farm][:name],
-      pick_your_own: params[:farm][:pick_your_own],
+      pick_your_own: (params[:farm][:pick_your_own] || false),
       acres: params[:farm][:acres]
     })
     farm.save
