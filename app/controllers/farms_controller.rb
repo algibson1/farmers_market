@@ -21,4 +21,8 @@ class FarmsController < ApplicationController
     farm.save
     redirect_to "/farms"
   end
+
+  def edit
+    
+  end
 end

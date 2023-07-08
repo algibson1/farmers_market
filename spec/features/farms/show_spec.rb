@@ -105,4 +105,21 @@ RSpec.describe "Farm show page" do
     click_on "Produce From This Farm"
     expect(current_path).to eq("/farms/#{@scarlet.id}/products")
   end
+
+#   User Story 12, Parent Update 
+
+# As a visitor
+# When I visit a parent show page
+# Then I see a link to update the parent "Update Parent"
+# When I click the link "Update Parent"
+# Then I am taken to '/parents/:id/edit' 
+# REST OF USER STORY IN SPEC FOR EDIT PAGE
+
+  it "has a link to update the farm's info" do
+    visit "/farms/#{@scarlet.id}"
+
+    expect(page).to have_content("Update Farm")
+    click_on "Update Farm"
+    expect(current_path).to eq("/farms/#{@scarlet.id}/edit")
+  end
 end
