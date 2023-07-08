@@ -1,9 +1,6 @@
-<div id="header">
-  <p><%= link_to "All Produce", "/products" %></p>
-  <p><%= link_to "All Farms", "/farms" %></p>
-</div>
-
 <h1>Farms</h1>
+
+<p><%= link_to "New Farm", "/farms/new" %></p>
 
 <% @farms.each do |farm| %>
   <h3 class="farm"><%= farm.name %></h3>
