@@ -49,14 +49,65 @@ RSpec.describe "create a new farm record page" do
     expect(page).to have_content("Date Posted: #{bob.created_at}")
   end
 
-  xit "works when pick your own box is not checked" do
+  it "works when pick your own box is not checked" do
+    #because an unchecked box is not included in params
+    #which causes the attribute to end up as nil, not false
+    visit "/farms/new"
     
+    fill_in "Farm Name", with: "Bob's Berries"
+    fill_in "Acres", with: "236"
+    click_on "Submit"
+    
+    bob = Farm.all[0]
+    expect(bob.pick_your_own).to eq(false)
+    expect(page).to have_content("Bob's Berries")
+    expect(page).to have_content("Date Posted: #{bob.created_at}")
   end
 
-  xit "raises an error if the user puts in invalid data" do
-    #such as letters into the acres field
-    #or special characters in farm name field?
+  #==============Edge Case==============================================================
+  xit "raises an error if acres field is left blank" do
+    visit "/farms/new"
+
+    fill_in "Farm Name", with: "Bob's Berries"
+    click_on "Submit"
+
+    expect(current_path).to eq("/farms/new")
+    expect(page).to raise_error("Acres cannot be left blank. If acreage is unknown, please enter 0")
   end
+
+  xit "raises an error if name field is left blank" do
+    visit "/farms/new"
+
+    fill_in "Acres", with: "654"
+    click_on "Submit"
+
+    expect(current_path).to eq("/farms/new")
+    expect(page).to raise_error("Please enter a farm name")
+  end
+
+  xit "raises an error if the user puts special characters in farm name field" do
+    visit "/farms/new"
+
+    fill_in "Farm Name", with: "Bob's_Berries^"
+    fill_in "Acres", with: "432"
+    click_on "Submit"
+    
+    expect(current_path).to eq("farms/new")
+    expect(page).to raise_error("The following characters are not permitted in names: ~!@#$%^&*()_-+={}[]<>?")
+  end
+
+  xit "raises an error if the user puts anything besides numbers in acres field" do
+    visit "/farms/new"
+
+    fill_in "Farm Name", with: "Bob's Berries"
+    fill_in "Acres", with: "forty-two"
+    click_on "Submit"
+
+    expect(current_path).to eq("farms/new")
+    expect(page).to raise_error("Please only use digits 0-9 for acres")
+  end
+  #==============Edge Case==============================================================
+
 
 end
 
