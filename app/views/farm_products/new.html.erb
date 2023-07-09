@@ -1,0 +1,13 @@
+<h1>Add New Product to <%= @farm.name %></h1>
+
+<%= form_with url: "/farms/#{@farm.id}/products", method: "post", local: true do |form| %>
+  <%= form.label "Product Name" %>
+  <%= form.text_field "Product Name" %><br>
+  <%= form.label "Fruit" %>
+  <%= form.check_box "Fruit" %>
+  <%= form.label "Seeds" %>
+  <%= form.check_box "Seeds" %><br>
+  <%= form.label "Cost Per Pound" %>
+  <%= form.text_field "Cost Per Pound" %>
+  <%= form.submit "Add Product" %>
+<% end %>

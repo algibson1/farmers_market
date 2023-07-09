@@ -87,5 +87,4 @@ RSpec.describe "Farm products index page" do
       expect(current_path).to eq("/farms")
     end
   end
-
 end

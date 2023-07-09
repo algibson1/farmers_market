@@ -141,7 +141,7 @@ the parent's info is updated,
 and I am redirected to the Parent's Show page where I see the parent's updated info
 ```
 ```
-[ ] done
+[X] done
 
 User Story 13, Parent Child Creation 
 
