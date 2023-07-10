@@ -18,4 +18,9 @@ class FarmProductsController < ApplicationController
     })
     redirect_to "/farms/#{farm.id}/products"
   end
+
+  def sort
+    @farm = Farm.find(params[:id])
+    @products = @farm.products.order(:name)
+  end
 end

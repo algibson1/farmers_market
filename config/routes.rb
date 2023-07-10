@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   post "/farms/:id/products", to: "farm_products#create"
   get "/products/:id/edit", to: "products#edit"
   patch "/products/:id", to: "products#update"
+  get "/farms/:id/products/sort", to: "farm_products#sort"
 end
