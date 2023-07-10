@@ -1,6 +1,6 @@
 <h1>Produce from <%= @farm.name %></h1>
 <%= link_to "Add New Product", "/farms/#{@farm.id}/products/new" %><br>
-<%= link_to "Alphabetize", "/farms/#{@farm.id}/products/sort" %>
+<%= link_to "Alphabetize", "/farms/#{@farm.id}/products?sort=alpha" %>
 
 <% @products.each do |product| %>
   <h3 class="product"><%= product.name %></h3>
