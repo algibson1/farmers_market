@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get "/farms/:farm_id/products", to: "farm_products#index"
   get "/farms/:id/products/new", to: "farm_products#new"
   post "/farms/:id/products", to: "farm_products#create"
+  get "/products/:id/edit", to: "products#edit"
+  patch "/products/:id", to: "products#update"
 end
