@@ -2,6 +2,7 @@
 
 <% @products.each do |product| %>
   <h2><%= product.name %></h2>
+  <%= link_to "Edit Info For #{product.name}", "/products/#{product.id}/edit" %>
   <% if product.fruit == true && product.seeds == false %>
     <p>Seedless Fruit</p>
   <% elsif product.fruit == true %> 
