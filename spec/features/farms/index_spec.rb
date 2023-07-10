@@ -100,13 +100,25 @@ RSpec.describe "Farm index page" do
     expect(current_path).to eq("/farms/new")
   end
   ### rest of test will need to be in spec for create page
-  # When I fill out the form with a new parent's attributes:
-  # And I click the button "Create Parent" to submit the form
-  # Then a `POST` request is sent to the '/parents' route,
-  # a new parent record is created,
-  # and I am redirected to the Parent Index page where I see the new Parent displayed.
 
 
+  # User Story 17, Parent Update From Parent Index Page 
 
+  # As a visitor
+  # When I visit the parent index page
+  # Next to every parent, I see a link to edit that parent's info
+  # When I click the link
+  # I should be taken to that parent's edit page where I can update its information just like in User Story 12
+  it "has a link by each farm to edit that farm" do
+    visit "/farms"
+
+    expect(page).to have_content("Edit Info For Scarlet Orchards")
+    expect(page).to have_content("Edit Info For Golden Orchards")
+    expect(page).to have_content("Edit Info For Lilac Vineyard")
+    expect(page).to have_content("Edit Info For Valerie's Veggies")
+
+    click_link("Edit Info For Scarlet Orchards")
+    expect(current_path).to eq("/farms/#{@scarlet.id}/edit")
+  end
 
 end

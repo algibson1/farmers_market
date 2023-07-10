@@ -194,7 +194,7 @@ I'm taken back to the Parent's children Index Page where I see all of the parent
 ```
 Usability
 ```
-[ ] done
+[X] done
 
 User Story 17, Parent Update From Parent Index Page 
 
