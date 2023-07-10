@@ -11,3 +11,4 @@
 <p>Varietals Offered: <%= @farm.products.count %></p>
 <p><%= link_to "Produce From This Farm", "/farms/#{@farm.id}/products" %></p>
 <p><%= link_to "Update Farm", "/farms/#{@farm.id}/edit" %></p>
+<p><%= link_to "Delete #{@farm.name}", "/farms/#{@farm.id}", method: :delete %></p>

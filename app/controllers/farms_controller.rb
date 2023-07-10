@@ -41,4 +41,11 @@ class FarmsController < ApplicationController
     farm.save
     redirect_to "/farms/#{farm.id}"
   end
+
+  def destroy
+    farm = Farm.find(params[:id])
+    farm.products.each {|product| product.destroy}
+    farm.destroy
+    redirect_to "/farms"
+  end
 end

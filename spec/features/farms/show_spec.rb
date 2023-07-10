@@ -122,4 +122,39 @@ RSpec.describe "Farm show page" do
     click_on "Update Farm"
     expect(current_path).to eq("/farms/#{@scarlet.id}/edit")
   end
+
+#   User Story 19, Parent Delete 
+
+# As a visitor
+# When I visit a parent show page
+# Then I see a link to delete the parent
+# When I click the link "Delete Parent"
+# Then a 'DELETE' request is sent to '/parents/:id',
+# the parent is deleted, and all child records are deleted
+# and I am redirected to the parent index page where I no longer see this parent
+
+  it "has a link to delete the farm" do
+    visit "/farms/#{@scarlet.id}"
+
+    expect(@scarlet).to be_a(Farm)
+    expect(page).to have_content("Delete Scarlet Orchards")
+    click_link("Delete Scarlet Orchards")
+
+    expect(current_path).to eq("/farms")
+    expect(page).to_not have_content("Scarlet Orchards")
+  end
+
+  it "deletes all associated products when a farm is deleted" do
+    visit "/products"
+    expect(page).to have_content("Pink Lady Apple")
+    expect(page).to have_content("Red Delicious Apple")
+    
+    visit "/farms/#{@scarlet.id}"
+    click_link("Delete Scarlet Orchards")
+
+    visit "/products"
+
+    expect(page).to_not have_content("Pink Lady Apple")
+    expect(page).to_not have_content("Red Delicious Apple")
+  end
 end
