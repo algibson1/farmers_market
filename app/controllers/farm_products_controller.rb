@@ -1,7 +1,11 @@
 class FarmProductsController < ApplicationController
   def index
     @farm = Farm.find(params[:farm_id])
-    @products = @farm.products
+    if params.keys.include?("sort")
+      @products = @farm.products.order(:name)
+    else
+      @products = @farm.products
+    end
   end
 
   def new
@@ -17,10 +21,5 @@ class FarmProductsController < ApplicationController
       cost_per_pound: params["Cost Per Pound"]
     })
     redirect_to "/farms/#{farm.id}/products"
-  end
-
-  def sort
-    @farm = Farm.find(params[:id])
-    @products = @farm.products.order(:name)
   end
 end
