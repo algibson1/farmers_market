@@ -194,7 +194,7 @@ I'm taken back to the Parent's children Index Page where I see all of the parent
 ```
 Usability
 ```
-[ ] done
+[X] done
 
 User Story 17, Parent Update From Parent Index Page 
 
@@ -205,7 +205,7 @@ When I click the link
 I should be taken to that parent's edit page where I can update its information just like in User Story 12
 ```
 ```
-[ ] done
+[x] done
 
 User Story 18, Child Update From Childs Index Page 
 

@@ -89,4 +89,25 @@ RSpec.describe "Products index page" do
     expect(page).to_not have_content("Vegetable")
     expect(page).to_not have_content("Romanesco Broccoli")
   end
+
+#   User Story 18, Child Update From Childs Index Page 
+
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to edit that child's info
+# When I click the link
+# I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
+
+  it "has a link to edit each product" do
+    visit "/products" 
+
+    expect(page).to have_content("Edit Info For Pink Lady Apple")
+    expect(page).to have_content("Edit Info For Red Delicious Apple")
+    expect(page).to have_content("Edit Info For Golden Delicious Apple")
+    expect(page).to have_content("Edit Info For Concord Grape")
+
+    click_link("Edit Info For Pink Lady Apple")
+
+    expect(current_path).to eq("/products/#{@lady.id}/edit")
+  end
 end

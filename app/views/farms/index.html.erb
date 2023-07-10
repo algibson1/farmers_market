@@ -4,6 +4,7 @@
 
 <% @farms.each do |farm| %>
   <h3 class="farm"><%= farm.name %></h3>
+  <%= link_to "Edit Info For #{farm.name}", "/farms/#{farm.id}/edit" %>
   <p>Date Posted: <%= farm.created_at %></p>
 <% end %>
 
