@@ -11,3 +11,5 @@
 <p>Cost: $<%= @product.cost_per_pound %> per pound</p>
 
 <p>Grown at <%= @product.farm.name %></p>
+
+<%= link_to "Update Product", "/products/#{@product.id}/edit" %>

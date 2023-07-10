@@ -1,0 +1,13 @@
+<h1>Edit Information For <%= @product.name %></h1>
+
+<%= form_with url: "/products/#{@product.id}", method: "patch", local: true do |form| %>
+  <%= form.label "Name" %>
+  <%= form.text_field "Name", value: "#{@product.name}" %><br>
+  <%= form.label "Fruit" %>
+  <%= form.check_box "Fruit", checked: @product.fruit %>
+  <%= form.label "Seeds" %>
+  <%= form.check_box "Seeds", checked: @product.seeds %>
+  <%= form.label "Cost Per Pound" %>
+  <%= form.text_field "Cost Per Pound", value: @product.cost_per_pound %>
+  <%= form.submit "Update Product" %>
+<% end %>
