@@ -67,6 +67,28 @@ RSpec.describe "Products show page" do
       click_on "All Farms"
       expect(current_path).to eq("/farms")
     end
-    save_and_open_page
+  end
+
+#   User Story 20, Child Delete 
+
+# As a visitor
+# When I visit a child show page
+# Then I see a link to delete the child "Delete Child"
+# When I click the link
+# Then a 'DELETE' request is sent to '/child_table_name/:id',
+# the child is deleted,
+# and I am redirected to the child index page where I no longer see this child
+
+  it "has a link to delete each product" do
+    visit "/products"
+    expect(page).to have_content("Pink Lady Apple")
+    
+    visit "/products/#{@lady.id}"
+
+    expect(page).to have_link("Delete Pink Lady Apple")
+    click_link("Delete Pink Lady Apple")
+
+    expect(current_path).to eq("/products")
+    expect(page).to_not have_content("Pink Lady Apple")
   end
 end

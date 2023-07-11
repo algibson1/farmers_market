@@ -218,7 +218,7 @@ I should be taken to that `child_table_name` edit page where I can update its in
 ## Iteration 3
 CRUD
 ```
-[ ] done
+[X] done
 
 User Story 19, Parent Delete 
 
@@ -231,7 +231,7 @@ the parent is deleted, and all child records are deleted
 and I am redirected to the parent index page where I no longer see this parent
 ```
 ```
-[ ] done
+[X] done
 
 User Story 20, Child Delete 
 
