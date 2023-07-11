@@ -1,6 +1,10 @@
 <h1>Produce from <%= @farm.name %></h1>
 <%= link_to "Add New Product", "/farms/#{@farm.id}/products/new" %><br>
-<%= link_to "Alphabetize", "/farms/#{@farm.id}/products?sort=alpha" %>
+<%= link_to "Alphabetize", "/farms/#{@farm.id}/products?sort=alpha" %><br>
+<%= form_with url: "/farms/#{@farm.id}/products",  method: :post, local: true do |form| %>
+  <%= form.submit "Only return records with a price above" %>
+  <%= form.text_field "cost threshold" %>
+<% end %>
 
 <% @products.each do |product| %>
   <h3 class="product"><%= product.name %></h3>
