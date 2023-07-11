@@ -132,4 +132,27 @@ RSpec.describe "Farm products index page" do
 
     expect(current_path).to eq("/products/#{@lady.id}/edit")
   end
+
+#   User Story 21, Display Records Over a Given Threshold 
+
+# As a visitor
+# When I visit the Parent's children Index Page
+# I see a form that allows me to input a number value
+# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+# Then I am brought back to the current index page with only the records that meet that threshold shown.
+
+  it "has a form to filter records by cost" do
+    visit "/farms/#{@scarlet.id}/products"
+
+    expect(page).to have_content("Red Delicious Apple")
+    expect(page).to have_content("Pink Lady Apple")
+    expect(page).to have_content("Braeburn Apple")
+    expect(page).to have_button("Only return records with a price above")
+    fill_in("cost threshold", with: 1.50)
+    click_button("Only return records with a price above")
+
+    expect(page).to_not have_content("Red Delicious Apple")
+    expect(page).to have_content("Pink Lady Apple")
+    expect(page).to have_content("Braeburn Apple")
+  end
 end
